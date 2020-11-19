@@ -2,8 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/about">Create</router-link>
+      <router-link to="/create">Create</router-link>
     </div>
     <router-view />
   </div>
@@ -29,5 +28,13 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+input {
+  margin: auto;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid pink;
+  padding: 20px;
 }
 </style>

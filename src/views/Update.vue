@@ -1,6 +1,6 @@
 <template>
-  <div class="create">
-    <h2>Shopping List</h2>
+  <div class="update">
+    <h1>Update</h1>
     <form>
       <input
         type="text"
@@ -16,7 +16,7 @@
         required
       />
 
-      <button type="button" v-on:click="createPost">Add Item To List</button>
+      <button type="button" v-on:click="updatePost">Update Post</button>
     </form>
   </div>
 </template>
@@ -24,18 +24,17 @@
 <script>
  import { postRef } from '../firebase-db'
  export default {
-     name: 'Create',
-     data () {
-         return {
-            post: {
-             description: '',
-             image: ''
-         }
-     }
+     name: 'Update',
+     props: {
+         post: Object
      },
+    
      methods: {
-     createPost () {
-         postRef.add(this.post)
+     updatePost () {
+         postRef.add(this.post.id).set({
+             description: this.post.description,
+             image: this.post.image
+         });
          this.$router.push('/')
      }
  }
