@@ -13,7 +13,6 @@
         type="text"
         v-model="post.image"
         placeholder="Indsæt billede her"
-        required
       />
 
       <button type="button" v-on:click="updatePost(post.id)">
@@ -35,7 +34,7 @@
      updatePost () {
 console.log(this.post);
 
-         postRef.add(this.post.id).set({
+         postRef.add(this.post.uid).set({
              description: this.post.description,
              image: this.post.image
          });
