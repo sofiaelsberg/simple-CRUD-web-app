@@ -34,11 +34,11 @@
      updatePost () {
 console.log(this.post);
 
-         postRef.add(this.post.uid).set({
+         postRef.doc(this.post.id).set({
              description: this.post.description,
              image: this.post.image
          });
-         this.$router.push('/')
+         this.$router.push("/")
      }
  }
  };
