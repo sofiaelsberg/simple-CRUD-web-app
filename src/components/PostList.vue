@@ -1,12 +1,15 @@
 <template>
   <div>
     <h2>Shopping List</h2>
-    <div class="grid-container">
+    <div class="container">
       <article v-for="post in posts" :key="post.id">
         <img :src="post.image" alt="" />
         <h3>{{ post.description }}</h3>
-        <router-link :to="{ name: 'Update', params: { post: post } }">
-          <button>Update</button>
+        <router-link
+          style="text-decoration: none"
+          :to="{ name: 'Update', params: { post: post } }"
+        >
+          <button id="pink" type="button">Update</button>
         </router-link>
         <button type="button" v-on:click="deletePost(post.id)">Delete</button>
       </article>
@@ -29,7 +32,7 @@ export default {
       }
   },
   firestore: {
-    posts: postRef,
+    posts: postRef
   },
 };
 

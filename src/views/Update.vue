@@ -16,7 +16,9 @@
         required
       />
 
-      <button type="button" v-on:click="updatePost">Update Post</button>
+      <button type="button" v-on:click="updatePost(post.id)">
+        Update Post
+      </button>
     </form>
   </div>
 </template>
@@ -24,13 +26,15 @@
 <script>
  import { postRef } from '../firebase-db'
  export default {
-     name: 'Update',
+     name: "Update",
      props: {
-         post: Object
+         post: Object,
      },
     
      methods: {
      updatePost () {
+console.log(this.post);
+
          postRef.add(this.post.id).set({
              description: this.post.description,
              image: this.post.image
